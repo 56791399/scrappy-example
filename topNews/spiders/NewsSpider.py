@@ -128,5 +128,5 @@ class NewsSpider(scrapy.Spider):
 
         filename = 'news-%s.html' % page
         with open(filename, 'wb') as f:
-            f.write(str(toSave))
+            f.write(str(response))
         self.log('Saved file %s' % filename)
