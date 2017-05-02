@@ -38,7 +38,7 @@ class NewsSpider2(scrapy.Spider):
                 headers = {'Content-type': 'application/json'}
                 if len(newsTitle) > 0 and (len(newsSummary) > 0 or len(newsContainLi) > 0):
                     newsSummary0 = str(newsSummary[0].replace(u"\u2018", "'").replace(u"\u2019", "'").replace(u"\u201c", "'").replace(u"\xed", "'").encode('utf8'))
-                    data = {"title": newsTitle0, "body": newsSummary0, "likes": '2', "imgUrl": newsImg0}
+                    data = {"title": newsTitle0, "body": newsSummary0, "likes": '2', "imgUrl": newsImg0, "source": "https://www.theguardian.com/international"}
 
                 data_json = json.dumps(data)
                 toPrint = data_json

@@ -34,12 +34,12 @@ class NewsSpider(scrapy.Spider):
                 headers = {'Content-type': 'application/json'}
                 if len(newsSummary) > 0 and (len(newsSummary) > 0 or len(newsContainLi) > 0):
                     newsSummary0 = str(newsSummary[0].replace(u"\u2018", "'").replace(u"\u2019", "'").replace(u"\u201c", "'").replace(u"\xed", "'").encode('utf8'))
-                    data = {"title": newsTitle0, "body": newsSummary0, "likes": '2', "imgUrl": newsImg0}
+                    data = {"title": newsTitle0, "body": newsSummary0, "likes": '2', "imgUrl": newsImg0, "source": "https://www.nytimes.com/"}
                 elif len(newsContainLi) > 0:
                     newsContainLi0 = str(newsContainLi[0].replace(u"\u2018", "'").replace(u"\u2019", "'").replace(u"\u201c", "'").replace(u"\xed", "'").encode('utf8'))
-                    data = {"title": newsTitle0, "body": newsContainLi0, "likes": '2', "imgUrl": newsImg0}
+                    data = {"title": newsTitle0, "body": newsContainLi0, "likes": '2', "imgUrl": newsImg0, "source": "https://www.nytimes.com/"}
                 else:
-                    data = {"title": newsTitle0, "body": "Body Empty", "likes": '2', "imgUrl": newsImg0}
+                    data = {"title": newsTitle0, "body": "Body Empty", "likes": '2', "imgUrl": newsImg0, "source": "https://www.nytimes.com/"}
 
                 data_json = json.dumps(data)
                 url = "http://localhost:9000/v1/news"
@@ -72,12 +72,12 @@ class NewsSpider(scrapy.Spider):
                     headers = {'Content-type': 'application/json'}
                     if len(newsSummary) > 0 :
                         newsSummary0 = str(newsSummary[0].replace(u"\u2018", "'").replace(u"\u2019", "'").replace(u"\u201c", "'").replace(u"\xed", "'").encode('utf8'))
-                        data = {"title": newsTitle0, "body": newsSummary0, "likes": '1', "imgUrl": newsImg0}
+                        data = {"title": newsTitle0, "body": newsSummary0, "likes": '1', "imgUrl": newsImg0, "source": "https://www.nytimes.com/"}
                     elif len(newsContainLi) > 0:
                         newsContainLi0 = str(newsContainLi[0].replace(u"\u2018", "'").replace(u"\u2019", "'").replace(u"\u201c", "'").replace(u"\xed", "'").encode('utf8'))
-                        data = {"title": newsTitle0, "body": newsContainLi0, "likes": '1', "imgUrl": newsImg0}
+                        data = {"title": newsTitle0, "body": newsContainLi0, "likes": '1', "imgUrl": newsImg0, "source": "https://www.nytimes.com/"}
                     else:
-                        data = {"title": newsTitle0, "body": "Body Empty", "likes": '1', "imgUrl": newsImg0}
+                        data = {"title": newsTitle0, "body": "Body Empty", "likes": '1', "imgUrl": newsImg0, "source": "https://www.nytimes.com/"}
                     
                     data_json = json.dumps(data)
                     toSave = str(data_json)
@@ -110,10 +110,10 @@ class NewsSpider(scrapy.Spider):
                     headers = {'Content-type': 'application/json'}
                     if len(newsSummary) > 0:
                         newsSummary0 = str(newsSummary[0].replace(u"\u2018", "'").replace(u"\u2019", "'").replace(u"\u201c", "'").replace(u"\xed", "'").encode('utf8'))
-                        data = {"title": newsTitle0, "body": newsSummary0, "likes": '1', "imgUrl": newsImg0}
+                        data = {"title": newsTitle0, "body": newsSummary0, "likes": '1', "imgUrl": newsImg0, "source": "https://www.nytimes.com/"}
                     elif len(newsContainLi) > 0:
                         newsContainLi0 = str(newsContainLi[0].replace(u"\u2018", "'").replace(u"\u2019", "'").replace(u"\u201c", "'").replace(u"\xed", "'").encode('utf8'))
-                        data = {"title": newsTitle0, "body": newsContainLi0, "likes": '1', "imgUrl": newsImg0}
+                        data = {"title": newsTitle0, "body": newsContainLi0, "likes": '1', "imgUrl": newsImg0, "source": "https://www.nytimes.com/"}
                     
                     data_json = json.dumps(data)
                     toSave = str(data_json)
